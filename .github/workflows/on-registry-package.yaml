@@ -1,0 +1,13 @@
+name: on-registry-package
+on:
+  registry_package:
+    types: [published, updated]
+  package:
+    types: [published, updated]
+permissions:
+  contents: read
+jobs:
+  seen:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "saw package event ${{ github.event_name }} action=${{ github.event.action }}"
